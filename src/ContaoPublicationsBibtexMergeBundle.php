@@ -8,10 +8,10 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Eknoes\ContaoPublicationsCrossrefFetcher;
+    namespace Eknoes\ContaoPublicationsBibtexMerge;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ContaoPublicationsCrossrefFetcherBundle extends Bundle
+class ContaoPublicationsBibtexMergeBundle extends Bundle
 {
 }

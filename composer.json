@@ -1,5 +1,5 @@
 {
-    "name": "eknoes/contao-publications-crossref-fetcher",
+    "name": "eknoes/contao-publications-bibtex-merge",
     "type": "contao-bundle",
     "description": "Bundle to modify the calendar, such that addTime is always true",
     "license": "LGPL-3.0-or-later",
@@ -29,16 +29,16 @@
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {
-        "contao-manager-plugin": "Eknoes\\ContaoPublicationsCrossrefFetcher\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Eknoes\\ContaoPublicationsBibtexMerge\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
-            "Eknoes\\ContaoPublicationsCrossrefFetcher\\": "src/"
+            "Eknoes\\ContaoPublicationsBibtexMerge\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eknoes\\ContaoPublicationsCrossrefFetcher\\Tests\\": "tests/"
+            "Eknoes\\ContaoPublicationsBibtexMerge\\Tests\\": "tests/"
         }
     },
     "repositories": [{"url": "https://github.com/eknoes/contao-publications.git", "type": "git"}]

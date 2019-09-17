@@ -16,15 +16,15 @@
  * Namespace
  */
 
-    namespace Eknoes\ContaoPublicationsCrossrefFetcher\Controller;
+    namespace Eknoes\ContaoPublicationsBibtexMerge\Controller;
 
 use Contao\BackendModule;
 use Contao\BackendTemplate;
 use Contao\Input;
-use Contao\System;
 use Eknoes\ContaoPublications\Utils\BibtexParser;
 use Eknoes\ContaoPublications\Utils\BibtexWriter;
 use Eknoes\ContaoPublications\Utils\PublicationsModifier;
+use Exception;
 
 
 /**
@@ -36,11 +36,6 @@ use Eknoes\ContaoPublications\Utils\PublicationsModifier;
  */
 class DOIMerge extends BackendModule
 {
-
-    public static function log(string $text) {
-        System::log($text,"DOIMerge", "CROSSREF_API");
-    }
-
 
     protected $strTemplate = "doi_merge";
 
@@ -76,8 +71,8 @@ class DOIMerge extends BackendModule
 
             try {
                 $doiBib = BibtexParser::parse_string(PublicationsModifier::fetchBibtex($current['doi']))[0];
-            } catch (\Exception $exception) {
-                $this->log("Could not fetch Bibtex from DOI: " . $exception->getMessage());
+            } catch (Exception $exception) {
+                $this->log("Could not fetch Bibtex from DOI: " . $exception->getMessage(), "compile", TL_GENERAL);
                 continue;
             }
             ksort($doiBib);

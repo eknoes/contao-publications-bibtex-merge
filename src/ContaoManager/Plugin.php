@@ -8,14 +8,14 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Eknoes\ContaoPublicationsCrossrefFetcher\ContaoManager;
+    namespace Eknoes\ContaoPublicationsBibtexMerge\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Eknoes\ContaoPublications\ContaoPublicationsBundle;
-use Eknoes\ContaoPublicationsCrossrefFetcher\ContaoPublicationsCrossrefFetcherBundle;
+use Eknoes\ContaoPublicationsBibtexMerge\ContaoPublicationsBibtexMergeBundle;
 
 class Plugin implements BundlePluginInterface
 {
@@ -25,7 +25,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(ContaoPublicationsCrossrefFetcherBundle::class)
+            BundleConfig::create(ContaoPublicationsBibtexMergeBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class, ContaoPublicationsBundle::class]),
         ];
     }
