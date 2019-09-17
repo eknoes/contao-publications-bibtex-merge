@@ -1,0 +1,57 @@
+<div style="width: 30%; float: left;  clear: left;">
+<h3>Fetched via DOI</h3>
+</div>
+<div style="width: 30%; float: left;">
+    <h3>Current</h3>
+</div>
+<div style="width: 30%; float: left;">
+    <h3>Computed</h3>
+</div>
+<style>
+    span.new-key {
+        background: lightgreen;
+    }
+    span.different-key {
+        background: lightpink;
+    }
+</style>
+<div style="width: 100%; height: 50px;"></div>
+
+<?php
+foreach ($this->pubs as $pub) {
+    ?>
+    <form method="post" action="<?= $this->action ?>">
+        <input type="hidden" name="REQUEST_TOKEN" value="<?php echo $this->token; ?>">
+        <input type="hidden" name="publicationId" value="<?php echo $pub["pubId"]; ?>">
+        <input type="hidden" name="current_bib" value="<?php echo strip_tags($pub["current"]); ?>">
+
+    <div style="width: 30%; float: left;  clear: left;">
+        <?= nl2br($pub["doi"]) ?>
+    </div>
+    <div style="width: 30%; float: left;">
+        <?= nl2br($pub["current"]) ?>
+    </div>
+    <div style="width: 30%; float: left;">
+        <?= nl2br($pub["computed"]) ?>
+    </div>
+    <div style="width: 100%; height: 50px; clear: left;">
+        <label style="width: 30%; display: inline-block;">
+            <input type="radio" name="bibtex" value="<?= strip_tags($pub["doi"]) ?>">
+            Choose Retrieved Bibtex
+        </label>
+        <label style="width: 30%; display: inline-block;">
+            <input type="radio" name="bibtex" value="<?= strip_tags($pub["current"]) ?>">
+            Choose Existing Bibtex
+        </label>
+        <label style="width: 30%; display: inline-block;">
+            <input type="radio" name="bibtex" value="<?= strip_tags($pub["computed"]) ?>" checked>
+            Choose Computed Bibtex
+        </label>
+
+        <input type="submit" name="submit" value="Submit">
+    </div>
+    </form>
+
+    <?php
+}
+?>
