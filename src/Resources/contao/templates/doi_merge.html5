@@ -1,3 +1,4 @@
+<h1>Enhance Publication</h1>
 <p>This module enhances existing publications by fetching the Bibtex from the publisher via DOI and merging it with the
     saved one.</p>
 <p>New fields are highlighted <span class="new-key">green</span> and changed fields are highlighted <span
