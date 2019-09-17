@@ -115,7 +115,7 @@ $GLOBALS['TL_DCA']['tl_doi_merge'] = array
         ),
         'tstamp' => array
         (
-            'sql' => "int(10) unsigned NOT NULL default '0'"
+            'sql' => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ),
         'publication_id' => array
         (
