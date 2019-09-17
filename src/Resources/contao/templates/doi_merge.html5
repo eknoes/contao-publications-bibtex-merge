@@ -1,3 +1,7 @@
+<p>This module enhances existing publications by fetching the Bibtex from the publisher via DOI and merging it with the
+    saved one.</p>
+<p>New fields are highlighted <span class="new-key">green</span> and changed fields are highlighted <span
+        class="different-key">yellow.</span></p>
 <div style="width: 30%; float: left;  clear: left;">
 <h3>Fetched via DOI</h3>
 </div>
@@ -11,6 +15,7 @@
     span.new-key {
         background: lightgreen;
     }
+
     span.different-key {
         background: lightyellow;
     }
@@ -19,11 +24,11 @@
 
 <?php
 foreach ($this->pubs as $pub) {
-    ?>
-    <form method="post" action="<?= $this->action ?>">
-        <input type="hidden" name="REQUEST_TOKEN" value="<?php echo $this->token; ?>">
-        <input type="hidden" name="publicationId" value="<?php echo $pub["pubId"]; ?>">
-        <input type="hidden" name="current_bib" value="<?php echo strip_tags($pub["current"]); ?>">
+?>
+<form action="<?= $this->action ?>" method="post">
+    <input name="REQUEST_TOKEN" type="hidden" value="<?php echo $this->token; ?>">
+    <input name="publicationId" pubId type="hidden" value="<?php echo $pub[""]; ?>">
+    <input current name="current_bib" type="hidden" value="<?php echo strip_tags($pub[""]); ?>">
 
     <div style="width: 30%; float: left;  clear: left;">
         <?= nl2br($pub["doi"]) ?>
@@ -36,22 +41,22 @@ foreach ($this->pubs as $pub) {
     </div>
     <div style="width: 100%; height: 50px; clear: left;">
         <label style="width: 30%; display: inline-block;">
-            <input type="radio" name="bibtex" value="<?= strip_tags($pub["doi"]) ?>">
+            <input doi name="bibtex" type="radio" value="<?= strip_tags($pub[""]) ?>">
             Choose Retrieved Bibtex
         </label>
         <label style="width: 30%; display: inline-block;">
-            <input type="radio" name="bibtex" value="<?= strip_tags($pub["current"]) ?>">
+            <input current name="bibtex" type="radio" value="<?= strip_tags($pub[""]) ?>">
             Choose Existing Bibtex
         </label>
         <label style="width: 30%; display: inline-block;">
-            <input type="radio" name="bibtex" value="<?= strip_tags($pub["computed"]) ?>" checked>
+            <input computed name="bibtex" type="radio" value="<?= strip_tags($pub[""]) ?>" checked>
             Choose Computed Bibtex
         </label>
 
         <input type="submit" name="submit" value="Submit">
     </div>
-    </form>
+</form>
 
-    <?php
+<?php
 }
 ?>
