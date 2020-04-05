@@ -1,7 +1,6 @@
 {
     "name": "eknoes/contao-publications-bibtex-merge",
     "type": "contao-bundle",
-    "description": "Bundle to modify the calendar, such that addTime is always true",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
@@ -12,11 +11,12 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "contao/core-bundle": "^4.4",
-        "eknoes/contao-publications": "^1.1.0",
+        "eknoes/contao-publications": "^1.1.0"
+    },
+    "require-dev": {
         "contao/manager-plugin": "^2.0"
     },
     "conflict": {
-        "contao/core": "*",
         "contao/manager-plugin": "<2.0 || >=3.0"
     },
     "extra": {
